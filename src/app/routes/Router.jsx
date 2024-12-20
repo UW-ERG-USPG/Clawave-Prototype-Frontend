@@ -55,7 +55,7 @@ const Router = createBrowserRouter(
     },
   ],
   {
-    basename: "/frontend",
+    basename: "/Clawave-Prototype-Frontend",
   }
 );
 
