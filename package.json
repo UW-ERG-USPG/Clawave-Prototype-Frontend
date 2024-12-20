@@ -1,7 +1,7 @@
 {
   "name": "Clawave-Prototype-Frontend",
   "version": "0.1.0",
-  "homepage": "https://UW-ERG-USPG.github.io/Clawave-Prototype-Frontend",
+  "homepage": "https://uw-erg-uspg.github.io/Clawave-Prototype-Frontend",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.13.3",
