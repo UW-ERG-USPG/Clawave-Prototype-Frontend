@@ -25,7 +25,7 @@ const Home = () => {
       />
 
       <br />
-     Pls report any issues found over <a href="https://github.com/raghav-ai/frontend/issues"className="text-blue-500 font-semibold">here.</a>
+     Pls report any issues found over <a href="https://uw-erg-uspg.github.io/Clawave-Prototype-Frontend/issues"className="text-blue-500 font-semibold">here.</a>
     </div>
   );
 };
