@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
+
+.navbar {
+    @apply bg-baseBlue py-1;
+}
+
+.navbar-container {
+    @apply container mx-auto flex justify-around py-3;
+}
+
+.navbar-logo {
+    @apply text-4xl font-bold text-bgWhite;
+}
+
+.navbar-links {
+    @apply flex items-center space-x-8 relative
+}
+
+.navbar-links-inactive {
+    @apply text-xl font-semibold text-bgWhite text-opacity-60 hover:text-opacity-100 transition-opacity duration-300;
+}
+
+.navbar-links-active {
+    @apply text-xl font-semibold text-bgWhite text-opacity-100
+}

@@ -1,24 +1,28 @@
-import { Link } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
+import "./Navbar.css";
+
 const Navbar = () => {
+  const location = useLocation()
+
   return (
-    <div className="bg-slate-600 z-100 ">
-      <div className="container mx-auto flex justify-around py-3">
+    <div className="navbar">
+      <div className="navbar-container">
         <Link to="/">
-          <h1 className="sm:text-lg lg:text-3xl font-bold text-slate-50">
+          <h1 className="navbar-logo">
             CLAWAVE PROTOTYPE
           </h1>
         </Link>
-        <div className="flex w-fit gap-5 justify-around text-2xl font-semibold text-slate-50">
-          <Link to="/" className="hover:text-black">
+        <div className="navbar-links">
+          <Link to="/" className={`${location.pathname === "/" ? "navbar-links-active" : "navbar-links-inactive"}`}>
             About{" "}
           </Link>
-          <Link to="/map" className="hover:text-black">
+          <Link to="/map" className={`${location.pathname.startsWith("/map") ? "navbar-links-active" : "navbar-links-inactive"}`}>
             Map{" "}
           </Link>
-          <Link to="/data" className="hover:text-black">
+          <Link to="/data" className={`${(location.pathname.startsWith("/data") || location.pathname.startsWith("/wqs") || location.pathname.startsWith("/dis-data")) ? "navbar-links-active" : "navbar-links-inactive"}`}>
             Data{" "}
           </Link>
-          <Link to="/graph" className="hover:text-black">
+          <Link to="/graph" className={`${location.pathname.startsWith("/graph") ? "navbar-links-active" : "navbar-links-inactive"}`}>
             Create Visualization{" "}
           </Link>
         </div>

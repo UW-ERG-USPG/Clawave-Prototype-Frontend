@@ -32,10 +32,10 @@ export default function Mapa() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [coords, setCoords] = useState([
-    parseFloat(searchParams.get("lat")) || 43.4723,
-    parseFloat(searchParams.get("long")) || -80.5449,
+    parseFloat(searchParams.get("lat")) || 52,//43.4723,
+    parseFloat(searchParams.get("long")) || -108,
   ]);
-  const [zoom, setZoom] = useState(parseInt(searchParams.get("zoom")) || 5);
+  const [zoom, setZoom] = useState(parseInt(searchParams.get("zoom")) || 6);
   const [list, setList] = useState([]);
   const [search, setSearch] = useState(null);
   const [checkedItems, setCheckedItems] = useState({
