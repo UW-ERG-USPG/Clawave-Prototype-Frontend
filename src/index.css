@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 body {
-  background:#94a3b8;
+  background:#FFFFFF;
   scroll-behavior: smooth;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',

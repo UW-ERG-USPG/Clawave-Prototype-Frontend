@@ -31,6 +31,8 @@ const Graph = () => {
   const [error2, setError2] = useState(null);
   const [menu, setMenu] = useState(true);
 
+  const [curVis, setCurVis] = useState(1)
+
   const buildUrl = (graph) => {
     if (!graph) return "";
     console.log(graph);
@@ -291,20 +293,26 @@ const Graph = () => {
         className="w-1/5 bg-slate-500 p-5 border-black border-r-2"
         style={{ display: !menu ? "none" : "" }}
       >
-        <button onClick={() => setMenu(false)}>Collapse</button>
-        <div className="mt-5">
-          <div>Visualization 1</div>
-          <TypeCard
-            onGenerate={handleGraph1Click}
-            ID={"G1"}
-            selectedStation={param}
-          />
+        <div className="menu flex items-center justify-center gap-2 rounded-lg border border-gray-400 p-2">
+          <button className = "menu-button flex-1 p-2 rounded-lg" onClick={() => setMenu(false)}>Collapse</button>
         </div>
-        <div className="mt-20">
-          <div>
-            <div>Visualization 2</div>
-            <TypeCard onGenerate={handleGraph2Click} ID={"G2"} />
-          </div>
+        <div className="menu flex items-center justify-center gap-2 rounded-lg border border-gray-400 p-2">
+          <button
+            className={`menu-button flex-1 p-2 rounded-lg ${curVis === 1 ? "bg-blue-500 text-white" : "bg-gray-200"}`}
+            onClick={() => setCurVis(1)}
+          >
+            Visualization 1
+          </button>
+          <button
+            className={`menu-button flex-1 p-2 rounded-lg ${curVis === 2 ? "bg-blue-500 text-white" : "bg-gray-200"}`}
+            onClick={() => setCurVis(2)}
+          >
+            Visualization 2
+          </button>
+        </div>
+        <div className="mt-5">
+          {curVis === 1 && (<div><div>Visualization 1</div> <TypeCard onGenerate={handleGraph1Click} ID={"G1"} selectedStation={param}/></div>)}        
+          {curVis === 2 && (<div><div>Visualization 2</div> <TypeCard onGenerate={handleGraph2Click} ID={"G2"} /></div>)}
         </div>
       </div>
       <div className="py-5 px-5" style={{ display: menu ? "none" : "" }}>

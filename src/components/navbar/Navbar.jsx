@@ -19,7 +19,9 @@ const Navbar = () => {
           <Link to="/map" className={`${location.pathname.startsWith("/map") ? "navbar-links-active" : "navbar-links-inactive"}`}>
             Map{" "}
           </Link>
-          <Link to="/data" className={`${(location.pathname.startsWith("/data") || location.pathname.startsWith("/wqs") || location.pathname.startsWith("/dis-data")) ? "navbar-links-active" : "navbar-links-inactive"}`}>
+          <Link to="/data" className={`${(location.pathname.startsWith("/data") || location.pathname.startsWith("/wqs") || 
+           location.pathname.startsWith("/dis-data") || location.pathname.startsWith("/wq") || location.pathname.startsWith("/wqm") || 
+           location.pathname.startsWith("/dis")) ? "navbar-links-active" : "navbar-links-inactive"}`}>
             Data{" "}
           </Link>
           <Link to="/graph" className={`${location.pathname.startsWith("/graph") ? "navbar-links-active" : "navbar-links-inactive"}`}>
