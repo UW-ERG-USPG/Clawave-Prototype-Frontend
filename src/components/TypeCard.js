@@ -11,7 +11,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 const BASE_URL =
   process.env.REACT_APP_TYPE === "production"
-    ? "https://api-jemx.onrender.com"
+    ? "https://api-x0mb.onrender.com"
     : "http://localhost:8080";
 const axiosInstance = axios.create({
   baseURL: BASE_URL,
@@ -36,7 +36,9 @@ const TypeCard = ({ onGenerate, ID, selectedStation }) => {
   const [selectedState, setSelectedState] = useState(selectedStation);
   const [boo, setboo] = useState(true);
   const buttons = ["Concentration", "Flow", "Load"];
-  const ldata = [
+  const [dis, setDis] = useState(true);
+
+  const wqldata = [
     {
       latitude: 53.16389083862305,
       longitude: -99.34889221191406,
@@ -75,6 +77,65 @@ const TypeCard = ({ onGenerate, ID, selectedStation }) => {
       locationId: 790108,
       doi: "10.25976/tm9b-c550",
       name: "ASSINIBOINE RIVER AT HWY 8 BRIDGE",
+      qlatitude: 51.5331,
+      qlongitude: -101.8889,
+      monitoringLocationType: "River/Stream",
+    },
+    {
+      latitude: 49.00374984741211,
+      longitude: -97.2238311767578,
+      stationNo: "05OC001",
+      stationName: "RED RIVER AT EMERSON",
+      province: "MB",
+      status: "Active",
+      locationId: 790110,
+      doi: "10.25976/tm9b-c550",
+      name: "RED RIVER AT EMERSON",
+      qlatitude: 49.0081,
+      qlongitude: -97.2106,
+      monitoringLocationType: "River/Stream",
+    },
+  ];
+
+  const disldata = [
+    {
+      latitude: 53.16389083862305,
+      longitude: -99.34889221191406,
+      stationNo: "05KL001",
+      stationName: "SASKATCHEWAN RIVER AT GRAND RAPIDS",
+      province: "MB",
+      status: "Active",
+      locationId: 37077,
+      doi: "10.25976/x5wn-0523",
+      name: "SASKATCHEWAN RIVER AT GRAND RAPIDS",
+      qlatitude: 53.16051,
+      qlongitude: -99.26573,
+      monitoringLocationType: "River/Stream",
+    },
+    {
+      latitude: 50.567501068115234,
+      longitude: -96.17749786376952,
+      stationNo: "05PF069",
+      stationName: "WINNIPEG RIVER AT PINE FALLS GENERATING STATION",
+      province: "MB",
+      status: "Active",
+      locationId: 37078,
+      doi: "10.25976/x5wn-0523",
+      name: "WINNIPEG RIVER AT PINE FALLS GENERATING STATION",
+      qlatitude: 50.56766,
+      qlongitude: -96.17697,
+      monitoringLocationType: "River/Stream",
+    },
+    {
+      latitude: 51.56489181518555,
+      longitude: -101.91655731201172,
+      stationNo: "05MD004",
+      stationName: "ASSINIBOINE RIVER AT KAMSACK",
+      province: "SK",
+      status: "Active",
+      locationId: 790108,
+      doi: "10.25976/tm9b-c550",
+      name: "ASSINIBOINE RIVER AT KAMSACK",
       qlatitude: 51.5331,
       qlongitude: -101.8889,
       monitoringLocationType: "River/Stream",
@@ -196,7 +257,17 @@ const TypeCard = ({ onGenerate, ID, selectedStation }) => {
           longitude: value.longitude,
         }));
       } else if (selected === "Load") {
-        temp = ldata.map((value) => ({
+        temp = (dis)? disldata.map((value) => ({
+          name1: value.stationName + " - " + value.stationNo,
+          name: value.name + " - " + value.locationId,
+          id: value.locationId,
+          stationName: value.name,
+          latitude: value.latitude,
+          longitude: value.longitude,
+          qlatitude: value.qlatitude,
+          qlongitude: value.qlongitude,
+        })) :
+        wqldata.map((value) => ({
           name1: value.stationName + " - " + value.stationNo,
           name: value.name + " - " + value.locationId,
           id: value.locationId,
@@ -222,7 +293,7 @@ const TypeCard = ({ onGenerate, ID, selectedStation }) => {
     };
 
     makeList();
-  }, [disAutoComplete, wqAutoComplete, selected, selectedStation]);
+  }, [dis, disAutoComplete, wqAutoComplete, selected, selectedStation]);
 
   const graphs = [
     "Flux Q - Scatter Plot",
@@ -429,28 +500,28 @@ const TypeCard = ({ onGenerate, ID, selectedStation }) => {
               }}
             />
           ) : (
-            <Autocomplete
-              key={"F"}
-              options={list}
-              getOptionLabel={(option) => option.name}
-              onChange={(event, newValue) => {
-                setStation(newValue);
-                setShowGraph("");
-                setShowLoad("");
-                setShowCharacteristic("");
-                setStationName(newValue?.stationName || "");
-              }}
-              renderInput={(params) => (
-                <TextField
-                  {...params}
-                  label="Enter Station"
-                  variant="outlined"
-                />
-              )}
-              isOptionEqualToValue={(option, value) =>
-                option.name === value.name
-              }
-            />
+              <Autocomplete
+                key={"F"}
+                options={list}
+                getOptionLabel={(option) => option.name}
+                onChange={(event, newValue) => {
+                  setStation(newValue);
+                  setShowGraph("");
+                  setShowLoad("");
+                  setShowCharacteristic("");
+                  setStationName(newValue?.stationName || "");
+                }}
+                renderInput={(params) => (
+                  <TextField
+                    {...params}
+                    label="Enter Station"
+                    variant="outlined"
+                  />
+                )}
+                isOptionEqualToValue={(option, value) =>
+                  option.name === value.name
+                }
+              />
           )}
 
           <div className="mt-5">
@@ -484,6 +555,25 @@ const TypeCard = ({ onGenerate, ID, selectedStation }) => {
         </div>
       ) : (
         <div className="mt-5">
+          <div>
+            <button
+              className={`px-4 py-2 text-sm font-medium rounded-lg ${
+                dis === true ? "bg-blue-500 text-white" : "bg-gray-200 text-gray-700"
+              }`}
+              onClick={() => setDis(true)}
+            >
+              Discharge
+            </button>
+            <button
+              className={`px-4 py-2 text-sm font-medium rounded-lg ${
+                dis === false ? "bg-blue-500 text-white" : "bg-gray-200 text-gray-700"
+              }`}
+              onClick={() => setDis(false)}
+            >
+              Water Quality
+            </button>
+          </div>
+          
           {select !== null && select !== "" ? (
             <Autocomplete
               key={selected + "LC"} // Add this to force re-render when selected changes

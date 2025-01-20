@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 
 const BASE_URL =
   process.env.REACT_APP_TYPE === "production"
-    ? "https://api-jemx.onrender.com"
+    ? "https://api-x0mb.onrender.com"
     : "http://localhost:8080";
 const axiosInstance = axios.create({
   baseURL: BASE_URL,
