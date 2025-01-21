@@ -69,6 +69,7 @@ const Graph = () => {
       case "Discharge vs Time - Violin Chart":
         return Station ? `/discharge-data/${Station}` : "";
       case "Water Quality vs Time - Box Plot":
+      case "Water Quality vs Time - Violin Chart":
       case "Water Quality - Scatter Plot":
         return Station && characteristic
           ? `/wq-data/${Station}?nutrients=${characteristic}`
@@ -270,6 +271,22 @@ const Graph = () => {
             xLabel={"Date"}
             yLabel={"Observed Values in mg/L"}
             title={` ${graphType.characteristic} vs Time graph for ${graphType.stationName}`}
+            startDate={`${graphType.startDate}`}
+            endDate={`${graphType.endDate}`}
+            temporal={`${graphType.temporal}`}
+            station={`${graphType.stationName}`}
+          />
+        );
+      
+      case "Water Quality vs Time - Violin Chart":
+        return (
+          <ViolinChart
+            data={data}
+            width={1500}
+            height={480}
+            xLabel={"Date"}
+            yLabel={"Observed Values in mg/L"}
+            title={`${graphType.characteristic} vs Time for ${graphType.stationName}`}
             startDate={`${graphType.startDate}`}
             endDate={`${graphType.endDate}`}
             temporal={`${graphType.temporal}`}
