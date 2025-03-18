@@ -52,12 +52,18 @@ const ScatterPlot1 = ({
     // Scales
     const xScale = d3
       .scaleLinear()
-      .domain([0, d3.max(validData, (d) => d.discharge)])
+      .domain([
+        Math.min(0, d3.min(validData, (d) => d.discharge)), 
+        d3.max(validData, (d) => d.discharge)
+      ])
       .range([0, Innerwidth]);
 
     const yScale = d3
       .scaleLinear()
-      .domain([0, d3.max(validData, (d) => d.conc)])
+      .domain([
+        Math.min(0, d3.min(validData, (d) => d.flux)), 
+        d3.max(validData, (d) => d.flux)
+      ])
       .range([Innerheight, 0]);
 
     // Axes

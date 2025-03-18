@@ -5,7 +5,7 @@ import { Link, useParams } from "react-router-dom";
 import CustomSelect from "../components/Select";
 const BASE_URL =
   process.env.REACT_APP_TYPE === "production"
-    ? "https://api-x0mb.onrender.com"
+    ? "http://198.168.187.196:8081"
     : "http://localhost:8080";
 const axiosInstance = axios.create({
   baseURL: BASE_URL,

@@ -10,7 +10,9 @@ const LineChart = ({
   title,
   startDate,
   endDate,
-  station
+  station,
+  ymax,
+  ymin,
 }) => {
   const svgRef = useRef(null);
   const [hoveredPoint, setHoveredPoint] = useState(null);
@@ -70,7 +72,10 @@ const LineChart = ({
 
     const y = d3
       .scaleLinear()
-      .domain([0, d3.max(dataWithGaps, (d) => d.value)])
+      .domain([
+        Math.min(0, d3.min(dataWithGaps, (d) => d.value)), 
+        d3.max(dataWithGaps, (d) => d.value)
+      ])
       .nice()
       .range([innerHeight, 0]);
 
