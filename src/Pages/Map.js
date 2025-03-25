@@ -9,7 +9,7 @@ import Autocomplete from "@mui/material/Autocomplete";
 import TextField from "@mui/material/TextField";
 const BASE_URL =
   process.env.REACT_APP_TYPE === "production"
-    ? "http://198.168.187.196:8081"
+    ? "https://198-168-187-196.cloud.computecanada.ca:443"
     : "http://localhost:8080";
 const axiosInstance = axios.create({
   baseURL: BASE_URL,
