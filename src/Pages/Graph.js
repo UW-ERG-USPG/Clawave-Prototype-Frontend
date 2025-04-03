@@ -340,13 +340,13 @@ const Graph = () => {
           {loading1 && <div>Loading...</div>}
           {error1 && <div>Error: {error1}</div>}
           {graph1 && !loading1 && !data && (
-            <div>Invlaid Parameters! pls provide valid </div>
+            <div>Invalid Parameters! pls provide valid </div>
           )}
           {graph1 && !loading1 && data && renderGraph(graph1, data)}
           {loading2 && <div>Loading...</div>}
           {error2 && <div>Error: {error2}</div>}
           {graph2 && !loading2 && !data2 && (
-            <div>Invlaid Parameters! pls provide valid </div>
+            <div>Invalid Parameters! pls provide valid </div>
           )}
           {graph2 && !loading2 && data2 && renderGraph(graph2, data2)}
         </div>
