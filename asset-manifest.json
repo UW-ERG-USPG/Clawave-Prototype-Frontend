@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/Clawave-Prototype-Frontend/static/css/main.6b38cbe0.css",
-    "main.js": "/Clawave-Prototype-Frontend/static/js/main.7aa0f545.js",
+    "main.css": "/Clawave-Prototype-Frontend/static/css/main.fe27c4a1.css",
+    "main.js": "/Clawave-Prototype-Frontend/static/js/main.206cfeec.js",
     "static/js/453.f6854ea2.chunk.js": "/Clawave-Prototype-Frontend/static/js/453.f6854ea2.chunk.js",
     "static/media/lwmap.jpg": "/Clawave-Prototype-Frontend/static/media/lwmap.a70bd0fe75a511c979d3.jpg",
     "index.html": "/Clawave-Prototype-Frontend/index.html",
-    "main.6b38cbe0.css.map": "/Clawave-Prototype-Frontend/static/css/main.6b38cbe0.css.map",
-    "main.7aa0f545.js.map": "/Clawave-Prototype-Frontend/static/js/main.7aa0f545.js.map",
+    "main.fe27c4a1.css.map": "/Clawave-Prototype-Frontend/static/css/main.fe27c4a1.css.map",
+    "main.206cfeec.js.map": "/Clawave-Prototype-Frontend/static/js/main.206cfeec.js.map",
     "453.f6854ea2.chunk.js.map": "/Clawave-Prototype-Frontend/static/js/453.f6854ea2.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.6b38cbe0.css",
-    "static/js/main.7aa0f545.js"
+    "static/css/main.fe27c4a1.css",
+    "static/js/main.206cfeec.js"
   ]
 }
