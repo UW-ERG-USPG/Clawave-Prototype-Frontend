@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/Clawave-Prototype-Frontend/static/css/main.fe27c4a1.css",
-    "main.js": "/Clawave-Prototype-Frontend/static/js/main.76a68ee9.js",
+    "main.js": "/Clawave-Prototype-Frontend/static/js/main.04783f36.js",
     "static/js/453.f6854ea2.chunk.js": "/Clawave-Prototype-Frontend/static/js/453.f6854ea2.chunk.js",
     "static/media/lwmap.jpg": "/Clawave-Prototype-Frontend/static/media/lwmap.a70bd0fe75a511c979d3.jpg",
     "index.html": "/Clawave-Prototype-Frontend/index.html",
     "main.fe27c4a1.css.map": "/Clawave-Prototype-Frontend/static/css/main.fe27c4a1.css.map",
-    "main.76a68ee9.js.map": "/Clawave-Prototype-Frontend/static/js/main.76a68ee9.js.map",
+    "main.04783f36.js.map": "/Clawave-Prototype-Frontend/static/js/main.04783f36.js.map",
     "453.f6854ea2.chunk.js.map": "/Clawave-Prototype-Frontend/static/js/453.f6854ea2.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.fe27c4a1.css",
-    "static/js/main.76a68ee9.js"
+    "static/js/main.04783f36.js"
   ]
 }
