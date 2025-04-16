@@ -67,12 +67,14 @@ const Graph = () => {
       case "Discharge vs Time - Line Graph":
       case "Discharge vs Time - Box Plot":
       case "Discharge vs Time - Violin Chart":
-        return Station ? `/discharge-data/${Station}` : "";
+        return Station && graph.startDate && graph.endDate
+          ? `/discharge-data/${Station}?startdate=${encodeURIComponent(graph.startDate)}&enddate=${encodeURIComponent(graph.endDate)}`
+          : "";
       case "Water Quality vs Time - Box Plot":
       case "Water Quality vs Time - Violin Chart":
       case "Water Quality - Scatter Plot":
-        return Station && characteristic
-          ? `/wq-data/${Station}?nutrients=${characteristic}`
+        return Station && characteristic && graph.startDate && graph.endDate
+          ? `/wq-data/${Station}?nutrients=${characteristic}&startdate=${encodeURIComponent(graph.startDate)}&enddate=${encodeURIComponent(graph.endDate)}`
           : "";
       default:
         return "";
